@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Tour {
+    int startMonth, startDay;
     private String place, startingCity, destinationCity, Vehicle;
     private int minPassengers, maxPassengers, price, travelLength;
     private String[] places;
     private int startDate;
-    int startMonth, startDay;
+    private String name;
+    private Leader leader;
 
     public int getStartMonth() {
         return startMonth;
@@ -25,9 +27,6 @@ public class Tour {
     public void setStartDay(int startDay) {
         this.startDay = startDay;
     }
-
-    private String name;
-    private Leader leader;
 
     public void set() {
         Scanner scanner = new Scanner(System.in);
@@ -50,7 +49,7 @@ public class Tour {
         places = new String[travelLength];
         scanner.nextLine();
         for (int i = 0; i < travelLength; i++) {
-            System.out.print("where to visit in day number "+(i+1)+": ");
+            System.out.print("where to visit in day number " + (i + 1) + ": ");
             places[i] = scanner.nextLine();
         }
     }
@@ -82,7 +81,7 @@ public class Tour {
 
     public String printLeader() {
         if (leader != null) {
-            return leader.getFirstName()+" "+leader.getLastName();
+            return leader.getFirstName() + " " + leader.getLastName();
         }
         return "not defined";
     }

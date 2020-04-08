@@ -1,27 +1,25 @@
 package ir.ac.kntu;
-import java.util.Arrays;
+
+import ir.ac.kntu.maputil.MapUtil;
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OUTPeer;
-import ir.ac.kntu.maputil.MapUtil;
-import net.sf.saxon.style.XSLOutput;
-import org.w3c.dom.ls.LSOutput;
-
 public class Main {
     public static int calcDate(int month, int day) {
         if (month >= 1 && month <= 6) {
-            return (month-1)*31 + day;
+            return (month - 1) * 31 + day;
         }
         if (month >= 7 && month <= 11) {
-            return 186 + (month - 7)*30 + day;
+            return 186 + (month - 7) * 30 + day;
         }
         if (month == 12) {
             return 336 + day;
         }
         return 0;
     }
+
     public static void main(String[] args) {
         Tour[] tourType = new Tour[1000];
         Tour[] tours = new Tour[1000];
@@ -72,13 +70,13 @@ public class Main {
                                 for (int k = 0; k < j; k++) {
                                     System.out.println(places.toString());
                                     System.out.println("choose from above list");
-                                    System.out.print((i+1)+". ");
+                                    System.out.print((i + 1) + ". ");
                                     leaders[leaderIndex].getPlaces()[i] = scanner.nextLine();
                                 }
                                 break;
                             }
                         }
-                        if (i == leaderIndex-1) {
+                        if (i == leaderIndex - 1) {
                             System.out.println("Not Found!");
                         }
                     }
@@ -94,7 +92,7 @@ public class Main {
                     for (int i = 0; i < j; i++) {
                         System.out.println(places.toString());
                         System.out.println("choose from above list");
-                        System.out.print((i+1)+". ");
+                        System.out.print((i + 1) + ". ");
                         leaders[leaderIndex].getPlaces()[i] = scanner.nextLine();
                     }
                     leaderIndex++;
@@ -117,7 +115,7 @@ public class Main {
                                 break;
                             }
                         }
-                        if (i == leaderIndex-1) {
+                        if (i == leaderIndex - 1) {
                             System.out.println("Not Found!");
                         }
                     }
@@ -144,7 +142,7 @@ public class Main {
                                 System.out.println(leaders[i]);
                                 flag++;
                             }
-                            if (flag == 0 && i == leaderIndex-1) {
+                            if (flag == 0 && i == leaderIndex - 1) {
                                 System.out.println("Not Found!");
                             }
                         }
@@ -160,7 +158,7 @@ public class Main {
                                 System.out.println(leaders[i]);
                                 flag++;
                             }
-                            if (flag == 0 && i == leaderIndex-1) {
+                            if (flag == 0 && i == leaderIndex - 1) {
                                 System.out.println("Not Found!");
                             }
                         }
@@ -180,7 +178,7 @@ public class Main {
                                     break;
                                 }
                             }
-                            if (i == leaderIndex-1 && flag == 0){
+                            if (i == leaderIndex - 1 && flag == 0) {
                                 System.out.println("Not Found!");
                             }
                         }
@@ -206,13 +204,12 @@ public class Main {
                                     System.out.println(leaders[i]);
                                     flag++;
                                 }
-                                if (i == leaderIndex-1 && flag == 0){
+                                if (i == leaderIndex - 1 && flag == 0) {
                                     System.out.println("Not Found!");
                                 }
                             }
                             key = 100;
-                        }
-                        else {
+                        } else {
                             scanner.nextLine();
                             System.out.print("enter x: ");
                             int x = scanner.nextInt();
@@ -223,7 +220,7 @@ public class Main {
                                         System.out.println(leaders[i]);
                                         flag++;
                                     }
-                                    if (i == leaderIndex-1 && flag == 0){
+                                    if (i == leaderIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -235,7 +232,7 @@ public class Main {
                                         System.out.println(leaders[i]);
                                         flag++;
                                     }
-                                    if (i == leaderIndex-1 && flag == 0){
+                                    if (i == leaderIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -270,13 +267,13 @@ public class Main {
                 if (key == 10) {
                     key = 100;
                 }
-                if (key == 1){
+                if (key == 1) {
                     for (int i = 0; i < typeIndex; i++) {
                         System.out.println(tourType[i]);
                     }
                     key = 100;
                 }
-                if (key == 2){
+                if (key == 2) {
                     for (int i = 0; i < tourIndex; i++) {
                         System.out.println(tours[i]);
                     }
@@ -294,7 +291,7 @@ public class Main {
                     scanner.nextLine();
                     tours[tourIndex] = new Tour();
                     for (int i = 0; i < typeIndex; i++) {
-                        System.out.println((i+1)+". "+tourType[i].getPlace());
+                        System.out.println((i + 1) + ". " + tourType[i].getPlace());
                     }
                     System.out.print("choose the type of tour from above list: ");
                     int index = scanner.nextInt();
@@ -314,7 +311,7 @@ public class Main {
                             flag++;
                         }
                     }
-                    tours[tourIndex].setName(tourType[index].getPlace()+" "+flag);
+                    tours[tourIndex].setName(tourType[index].getPlace() + " " + flag);
                     System.out.println("enter the starting date:");
                     System.out.print("month: ");
                     int month = scanner.nextInt();
@@ -322,17 +319,16 @@ public class Main {
                     int day = scanner.nextInt();
                     tours[tourIndex].setStartMonth(month);
                     tours[tourIndex].setStartDay(day);
-                    tours[tourIndex].setStartDate(calcDate(month,day));
+                    tours[tourIndex].setStartDate(calcDate(month, day));
                     flag = 0;
                     for (int i = 0; i < leaderIndex; i++) {
                         for (int j = 0; leaders[i].getPlaces()[j] != null; j++) {
                             if (leaders[i].getPlaces()[j].equals(tourType[index].getPlace())) {
                                 if (leaders[i].getTourIndex() == 0) {
-                                    System.out.println(i+". "+leaders[i]);
+                                    System.out.println(i + ". " + leaders[i]);
                                     flag++;
                                     break;
-                                }
-                                else {
+                                } else {
                                     for (int k = 0; leaders[i].getTours()[k] != null; k++) {
                                         if (leaders[i].getTours()[k].getStartDate() > tours[tourIndex].getStartDate() + tours[tourIndex].getTravelLength() - 1 || tours[tourIndex].getStartDate() > leaders[i].getTours()[k].getStartDate() + leaders[i].getTours()[k].getTravelLength() - 1) {
                                             System.out.println(i + ". " + leaders[i]);
@@ -347,8 +343,7 @@ public class Main {
                     if (flag == 0) {
                         System.out.println("no available leader");
                         key = 100;
-                    }
-                    else {
+                    } else {
                         System.out.print("choose leader from above list: ");
                         int i = scanner.nextInt();
                         tours[tourIndex].setLeader(leaders[i]);
@@ -361,7 +356,7 @@ public class Main {
                 if (key == 5) {
                     scanner.nextLine();
                     for (int i = 0; i < typeIndex; i++) {
-                        System.out.println(i+". "+tourType[i].getPlace());
+                        System.out.println(i + ". " + tourType[i].getPlace());
                     }
                     System.out.print("choose the tour type: ");
                     int index = scanner.nextInt();
@@ -374,13 +369,13 @@ public class Main {
                 if (key == 6) {
                     scanner.nextLine();
                     for (int i = 0; i < tourIndex; i++) {
-                        System.out.println(i+". "+tours[i].getName());
+                        System.out.println(i + ". " + tours[i].getName());
                     }
                     System.out.print("choose the tour: ");
                     int ind = scanner.nextInt();
                     Tour tour = new Tour();
                     for (int i = 0; i < typeIndex; i++) {
-                        System.out.println(i+". "+tourType[i].getPlace());
+                        System.out.println(i + ". " + tourType[i].getPlace());
                     }
                     System.out.print("choose the type of tour from above list: ");
                     int index = scanner.nextInt();
@@ -399,7 +394,7 @@ public class Main {
                             flag++;
                         }
                     }
-                    tour.setName(tourType[index].getPlace()+" "+flag);
+                    tour.setName(tourType[index].getPlace() + " " + flag);
                     System.out.println("enter the starting date:");
                     System.out.print("month: ");
                     int month = scanner.nextInt();
@@ -407,19 +402,19 @@ public class Main {
                     int day = scanner.nextInt();
                     tour.setStartMonth(month);
                     tour.setStartDay(day);
-                    tour.setStartDate(calcDate(month,day));
+                    tour.setStartDate(calcDate(month, day));
                     flag = 0;
                     for (int i = 0; i < leaderIndex; i++) {
                         for (int j = 0; leaders[i].getPlaces()[j] != null; j++) {
                             if (leaders[i].getPlaces()[j].equals(tourType[index].getPlace())) {
                                 if (leaders[i].getTourIndex() == 0) {
-                                    System.out.println(i+". "+leaders[i]);
+                                    System.out.println(i + ". " + leaders[i]);
                                     flag++;
                                     break;
                                 }
                                 for (int k = 0; leaders[i].getTours()[k] != null; k++) {
-                                    if (leaders[i].getTours()[k].getStartDate() > tour.getStartDate()+tour.getTravelLength()-1 || tour.getStartDate() > leaders[i].getTours()[k].getStartDate()+leaders[i].getTours()[k].getTravelLength()-1) {
-                                        System.out.println(i+". "+leaders[i]);
+                                    if (leaders[i].getTours()[k].getStartDate() > tour.getStartDate() + tour.getTravelLength() - 1 || tour.getStartDate() > leaders[i].getTours()[k].getStartDate() + leaders[i].getTours()[k].getTravelLength() - 1) {
+                                        System.out.println(i + ". " + leaders[i]);
                                         flag++;
                                         break;
                                     }
@@ -430,8 +425,7 @@ public class Main {
                     if (flag == 0) {
                         System.out.println("no available leader");
                         key = 100;
-                    }
-                    else {
+                    } else {
                         System.out.print("choose leader from above list: ");
                         int i = scanner.nextInt();
                         tour.setLeader(leaders[i]);
@@ -444,7 +438,7 @@ public class Main {
                 if (key == 7) {
                     scanner.nextLine();
                     for (int i = 0; i < tourIndex; i++) {
-                        System.out.println(i+". "+tours[i].getName());
+                        System.out.println(i + ". " + tours[i].getName());
                     }
                     System.out.print("choose the tour: ");
                     int index = scanner.nextInt();
@@ -453,14 +447,14 @@ public class Main {
                         if (tours[index].getLeader().getTours()[i].getName().equals(tours[index].getName())) {
                             System.out.println("2");
                             for (int j = i; j < 99; j++) {
-                                tours[index].getLeader().getTours()[j] = tours[index].getLeader().getTours()[j+1];
-                                tours[index].getLeader().setTourIndex(tours[index].getLeader().getTourIndex()-1);
+                                tours[index].getLeader().getTours()[j] = tours[index].getLeader().getTours()[j + 1];
+                                tours[index].getLeader().setTourIndex(tours[index].getLeader().getTourIndex() - 1);
                             }
                             break;
                         }
                     }
-                    for (int i = index; i < tourIndex-1; i++) {
-                        tours[i] = tours[i+1];
+                    for (int i = index; i < tourIndex - 1; i++) {
+                        tours[i] = tours[i + 1];
                     }
                     tourIndex--;
                     key = 100;
@@ -489,7 +483,7 @@ public class Main {
                         System.out.print("enter the visiting place: ");
                         String string = scanner.nextLine();
                         for (int i = 0; i < typeIndex; i++) {
-                            for (int k = 0; k < tourType[i].getTravelLength(); k++){
+                            for (int k = 0; k < tourType[i].getTravelLength(); k++) {
                                 if (tourType[i].getPlaces()[k].equals(string)) {
                                     System.out.println(tourType[i]);
                                     break;
@@ -543,13 +537,12 @@ public class Main {
                                     System.out.println(tourType[i]);
                                     flag++;
                                 }
-                                if (i == typeIndex-1 && flag == 0){
+                                if (i == typeIndex - 1 && flag == 0) {
                                     System.out.println("Not Found!");
                                 }
                             }
                             key = 100;
-                        }
-                        else {
+                        } else {
                             scanner.nextLine();
                             System.out.print("enter x: ");
                             int x = scanner.nextInt();
@@ -560,7 +553,7 @@ public class Main {
                                         System.out.println(tourType[i]);
                                         flag++;
                                     }
-                                    if (i == typeIndex-1 && flag == 0){
+                                    if (i == typeIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -572,7 +565,7 @@ public class Main {
                                         System.out.println(tourType[i]);
                                         flag++;
                                     }
-                                    if (i == typeIndex-1 && flag == 0){
+                                    if (i == typeIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -584,7 +577,7 @@ public class Main {
                                         System.out.println(tourType[i]);
                                         flag++;
                                     }
-                                    if (i == typeIndex-1 && flag == 0){
+                                    if (i == typeIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -619,7 +612,7 @@ public class Main {
                         System.out.print("enter the visiting place: ");
                         String string = scanner.nextLine();
                         for (int i = 0; i < tourIndex; i++) {
-                            for (int k = 0; k < tours[i].getTravelLength(); k++){
+                            for (int k = 0; k < tours[i].getTravelLength(); k++) {
                                 if (tours[i].getPlaces()[k].equals(string)) {
                                     System.out.println(tours[i]);
                                     break;
@@ -673,13 +666,12 @@ public class Main {
                                     System.out.println(tours[i]);
                                     flag++;
                                 }
-                                if (i == tourIndex-1 && flag == 0){
+                                if (i == tourIndex - 1 && flag == 0) {
                                     System.out.println("Not Found!");
                                 }
                             }
                             key = 100;
-                        }
-                        else {
+                        } else {
                             scanner.nextLine();
                             System.out.print("enter x: ");
                             int x = scanner.nextInt();
@@ -690,7 +682,7 @@ public class Main {
                                         System.out.println(tours[i]);
                                         flag++;
                                     }
-                                    if (i == tourIndex-1 && flag == 0){
+                                    if (i == tourIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -702,7 +694,7 @@ public class Main {
                                         System.out.println(tours[i]);
                                         flag++;
                                     }
-                                    if (i == tourIndex-1 && flag == 0){
+                                    if (i == tourIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -714,7 +706,7 @@ public class Main {
                                         System.out.println(tours[i]);
                                         flag++;
                                     }
-                                    if (i == tourIndex-1 && flag == 0){
+                                    if (i == tourIndex - 1 && flag == 0) {
                                         System.out.println("Not Found!");
                                     }
                                 }
@@ -725,7 +717,7 @@ public class Main {
                     if (key == 6) {
                         scanner.nextLine();
                         for (int i = 0; i < leaderIndex; i++) {
-                            System.out.println(i+". "+leaders[i].getFirstName()+" "+leaders[i].getLastName());
+                            System.out.println(i + ". " + leaders[i].getFirstName() + " " + leaders[i].getLastName());
                         }
                         System.out.print("choose the leader: ");
                         int index = scanner.nextInt();
@@ -752,27 +744,26 @@ public class Main {
                             int finishMonth = scanner.nextInt();
                             System.out.print("enter the finish day: ");
                             int finishDay = scanner.nextInt();
-                            int x = calcDate(startMonth,startDay);
-                            int y = calcDate(finishMonth,finishDay);
+                            int x = calcDate(startMonth, startDay);
+                            int y = calcDate(finishMonth, finishDay);
                             int flag = 0;
                             for (int i = 0; i < tourIndex; i++) {
                                 if (tours[i].getStartDate() > x && tours[i].getStartDate() < y) {
                                     System.out.println(tours[i]);
                                     flag++;
                                 }
-                                if (i == tourIndex-1 && flag == 0){
+                                if (i == tourIndex - 1 && flag == 0) {
                                     System.out.println("Not Found!");
                                 }
                             }
                             key = 100;
-                        }
-                        else {
+                        } else {
                             scanner.nextLine();
                             System.out.print("enter the month: ");
                             int startMonth = scanner.nextInt();
                             System.out.print("enter the day: ");
                             int startDay = scanner.nextInt();
-                            int x = calcDate(startMonth,startDay);
+                            int x = calcDate(startMonth, startDay);
                             int flag = 0;
                             if (key == 1) {
                                 for (int i = 0; i < tourIndex; i++) {
@@ -820,7 +811,7 @@ public class Main {
                     String name = scanner.nextLine();
                     if (places.contains(name)) {
                         System.out.println("This Is Repetitive!");
-                    }else {
+                    } else {
                         places.add(name);
                     }
                     key = 100;
@@ -834,7 +825,7 @@ public class Main {
                         places.remove(name);
                         System.out.println("enter the new name: ");
                         places.add(scanner.nextLine());
-                    }else {
+                    } else {
                         System.out.println("Not Found!");
                     }
                     key = 100;
@@ -847,7 +838,7 @@ public class Main {
                     if (places.contains(name)) {
                         places.remove(name);
                         System.out.println("Deleted Successful!");
-                    }else {
+                    } else {
                         System.out.println("Not Found!");
                     }
                     key = 100;
@@ -870,7 +861,7 @@ public class Main {
                 if (key == 1) {
                     scanner.nextLine();
                     for (int i = 0; i < tourIndex; i++) {
-                        System.out.println(i+". "+ tours[i].getName());
+                        System.out.println(i + ". " + tours[i].getName());
                     }
                     key = 100;
                     System.out.print("choose from above list: ");
@@ -880,7 +871,7 @@ public class Main {
                 if (key == 2) {
                     scanner.nextLine();
                     for (int i = 0; i < tourIndex; i++) {
-                        System.out.println(i+". "+ tours[i].getName());
+                        System.out.println(i + ". " + tours[i].getName());
                     }
                     key = 100;
                     System.out.print("choose from above list: ");
@@ -890,7 +881,7 @@ public class Main {
                 if (key == 3) {
                     scanner.nextLine();
                     for (int i = 0; i < tourIndex; i++) {
-                        System.out.println(i+". "+ tours[i].getName());
+                        System.out.println(i + ". " + tours[i].getName());
                     }
                     key = 100;
                     System.out.print("choose from above list: ");
@@ -901,7 +892,7 @@ public class Main {
                 if (key == 4) {
                     scanner.nextLine();
                     for (int i = 0; i < tourIndex; i++) {
-                        System.out.println(i+". "+ tours[i].getName());
+                        System.out.println(i + ". " + tours[i].getName());
                     }
                     key = 100;
                     System.out.print("choose from above list: ");
@@ -923,7 +914,7 @@ public class Main {
                     String string1 = scanner.nextLine();
                     System.out.print("enter the name of the second city: ");
                     String string2 = scanner.nextLine();
-                    MapUtil.showMap(string1,string2);
+                    MapUtil.showMap(string1, string2);
                     key = 100;
                 }
             }

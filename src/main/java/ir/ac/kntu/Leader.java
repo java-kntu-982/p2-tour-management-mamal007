@@ -1,8 +1,5 @@
 package ir.ac.kntu;
 
-import net.sf.saxon.style.XSLOutput;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -54,6 +51,7 @@ public class Leader {
         }
         return a;
     }
+
     public int getDay() {
         return day;
     }
