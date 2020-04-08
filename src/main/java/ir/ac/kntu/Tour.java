@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Tour {
     int startMonth, startDay;
-    private String place, startingCity, destinationCity, Vehicle;
+    private String place, startingCity, destinationCity, vehicle;
     private int minPassengers, maxPassengers, price, travelLength;
     private String[] places;
     private int startDate;
@@ -61,7 +61,7 @@ public class Tour {
                 ", place = '" + place + '\'' +
                 ", firstCity = '" + startingCity + '\'' +
                 ", lastCity = '" + destinationCity + '\'' +
-                ", Vehicle = '" + Vehicle + '\'' +
+                ", Vehicle = '" + vehicle + '\'' +
                 ", minPassengers = " + minPassengers +
                 ", maxPassengers = " + maxPassengers +
                 ", price = " + price +
@@ -120,11 +120,11 @@ public class Tour {
     }
 
     public String getVehicle() {
-        return Vehicle;
+        return vehicle;
     }
 
     public void setVehicle(String vehicle) {
-        Vehicle = vehicle;
+        this.vehicle = vehicle;
     }
 
     public int getMinPassengers() {
